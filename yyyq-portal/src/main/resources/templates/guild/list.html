@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      lang="zh-CN"
+      xmlns="http://www.w3.org/1999/xhtml"
+      layout:decorator="shared/notLayout">
+<head>
+</head>
+<body>
+<div th:fragment="content" th:remove="tag">
+    <!-- ... end Stunning header -->
+    <div class="row">
+        <div class="col col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+            <div class="ui-block responsive-flex1200">
+                <div class="ui-block-title">
+                    <div class="w-select">
+                        <div class="title">服务器:</div>
+                        <fieldset class="form-group">
+                            <select class="selectpicker form-control">
+                                <option value="NU">不限</option>
+                                <option value="NU">白银之手</option>
+                            </select>
+                        </fieldset>
+                    </div>
+                    <div class="w-select">
+                        <div class="title">阵营:</div>
+                        <fieldset class="form-group">
+                            <select class="selectpicker form-control">
+                                <option value="NU">不限</option>
+                                <option value="NU">联盟</option>
+                                <option value="NU">部落</option>
+                            </select>
+                        </fieldset>
+                    </div>
+                    <div class="w-select">
+                        <div class="title">职业:</div>
+                        <fieldset class="form-group">
+                            <select class="selectpicker form-control">
+                                <option value="NU">不限</option>
+                                <option value="NU">潜行者</option>
+                            </select>
+                        </fieldset>
+                    </div>
+                    <a class="btn btn-purple btn-md-2" data-target="#add-my-job" data-toggle="modal" href="#">我要招募<div class="ripple-container"></div></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <section class="blog-post-wrap medium-padding80">
+        <div class="row">
+            <div class="col col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                <ul class="table-careers">
+                    <li class="head">
+                        <span>阵营</span>
+                        <span>公会名</span>
+                        <span>奥迪尔进度</span>
+                        <span>活动时间</span>
+                        <span>招募职业</span>
+                    </li>
+                    <li>
+                        <span class="bold">联盟</span>
+                        <span class="bold">追忆往夕</span>
+                        <span class="bold">4/8M</span>
+                        <span class="bold">周四、七、一</span>
+                        <span class="bold">
+                            <img src="https://www.wowchina.com/static/components/GameIcon/GameIcon-class-death-knight-vector.png" class="" style="width: 20px">
+                            <img src="https://www.wowchina.com/static/components/GameIcon/GameIcon-class-warrior-vector.png" class="" style="width: 20px">
+                            <img src="https://www.wowchina.com/static/components/GameIcon/GameIcon-class-rogue-vector.png" class="" style="width: 20px">
+                            <img src="https://www.wowchina.com/static/components/GameIcon/GameIcon-class-priest-vector.png" class="" style="width: 20px">
+                            <img src="https://www.wowchina.com/static/components/GameIcon/GameIcon-class-monk-vector.png" class="" style="width: 20px">
+                        </span>
+                    </li>
+                    <li>
+                        <span class="bold">部落</span>
+                        <span class="bold">Sliver Hand</span>
+                        <span class="bold">8/8M</span>
+                        <span class="bold">全天</span>
+                        <span class="bold">
+                            <img src="https://www.wowchina.com/static/components/GameIcon/GameIcon-class-death-knight-vector.png" class="" style="width: 20px">
+                            <img src="https://www.wowchina.com/static/components/GameIcon/GameIcon-class-warrior-vector.png" class="" style="width: 20px">
+                            <img src="https://www.wowchina.com/static/components/GameIcon/GameIcon-class-rogue-vector.png" class="" style="width: 20px">
+                            <img src="https://www.wowchina.com/static/components/GameIcon/GameIcon-class-priest-vector.png" class="" style="width: 20px">
+                            <img src="https://www.wowchina.com/static/components/GameIcon/GameIcon-class-monk-vector.png" class="" style="width: 20px">
+                        </span>
+                    </li>
+                </ul>
+            </div>
+            <a class="btn btn-control btn-more" href="#">
+                <span class="icon icon-ellipsis-h"></span>
+                <div class="ripple-container"></div>
+            </a>
+        </div>
+    </section>
+    <div class="modal fade" id="show-job-info" tabindex="-1" role="dialog" aria-labelledby="show-job-info" aria-hidden="true">
+        <div class="modal-dialog window-popup edit-my-poll-popup" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="edit-my-poll-head bg-grey-lighter">
+                        <div class="head-content">
+                            <h3 class="title">我心蚀如影-潜行者</h3>
+                            <div class="place inline-items">
+                                <span>装等：897</span>
+                                <span>阵营：不限</span>
+                                <span>定位：PFF</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="edit-my-poll-content">
+                        <h4>求职描述</h4>
+                        <p>
+                        </p>
+                        <p>原先团队因为工作等原因afk了不少人活动停止，只剩一个BOSS了还是有点遗憾，所以想找个能稳定开荒阿古斯的队伍
+                            唉，找了个团队都稳定P3了，不知道发生什么原本小30个人的团突然就组不起来了，找个下家能稳定打完阿古斯的
+                        </p>
+                        <h4>联系方式</h4>
+                        <p>微信：xxxx，QQ：xxxxx</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="add-my-job" tabindex="-2" role="dialog" aria-labelledby="add-my-job" aria-hidden="true">
+        <div class="modal-dialog window-popup create-event" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h6 class="title">填写招募信息</h6>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group label-floating is-select">
+                        <label class="control-label">服务器</label>
+                        <select class="selectpicker form-control">
+                            <option value="MA">白银之手</option>
+                        </select>
+                    </div>
+                    <div class="form-group label-floating">
+                        <label class="control-label">公会名</label>
+                        <input class="form-control" placeholder="请输入公会名" value="" type="text">
+                    </div>
+                    <div class="form-group label-floating">
+                        <label class="control-label">WCL地址</label>
+                        <input class="form-control" placeholder="请输入WCL地址" value="" type="text">
+                    </div>
+                    <div class="form-group label-floating is-select">
+                        <label class="control-label">定位</label>
+                        <select class="selectpicker form-control">
+                            <option value="MA">PFF（休闲）</option>
+                            <option value="FE">PFU（职业）</option>
+                        </select>
+                    </div>
+                    <div class="form-group label-floating">
+                        <label class="control-label">其他描述</label>
+                        <textarea class="form-control" placeholder="对求职者的期望等等">
+					</textarea>
+                    </div>
+                    <div class="form-group label-floating">
+                        <label class="control-label">活动时间</label>
+                        <input class="form-control" placeholder="8-11:30" value="" type="text">
+                    </div>
+                    <form class="form-group label-floating is-select">
+                        <span class="icon icon-calendar-o olymp-happy-face-icon"></span>
+                        <select class="selectpicker form-control style-2 show-tick" multiple data-live-search="true">
+                            <option title="周一">周一</option>
+                            <option>周二</option>
+                            <option>周三</option>
+                            <option>周四</option>
+                        </select>
+                    </form>
+                    <button class="btn btn-purple btn-lg full-width">完成</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

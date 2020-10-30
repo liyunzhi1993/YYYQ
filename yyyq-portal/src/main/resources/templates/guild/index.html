@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh-CN"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="shared/guildLayout">
+<head>
+</head>
+<body>
+<div th:fragment="content" th:remove="tag">
+    <div class="row" id="wow">
+        <div class="col col-xl-8 order-xl-2 col-lg-8 order-lg-2 col-md-12 order-md-1 col-sm-12 col-12">
+            <div class="ui-block">
+                <div class="ui-block-title">
+                    <h6 class="title">艾泽拉斯中的我</h6>
+                </div>
+                <div class="ui-block-content">
+                    <div class="row">
+                        <div class="col col-lg-12 col-md-12 col-sm-12 col-12">
+                            <pre v-html="userwow.introduction"></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div th:fragment="script" th:remove="tag">
+    <script src="/script/user/wow.js"></script>
+</div>
+</body>
+</html>

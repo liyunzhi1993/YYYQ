@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-CN"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="shared/notLayout">
+<head>
+</head>
+<body>
+<div th:fragment="content" th:remove="tag">
+    <div class="container" id="profile">
+        <div class="row">
+            <div class="col col-xl-9 order-xl-2 col-lg-9 order-lg-2 col-md-12 order-md-1 col-sm-12 col-12">
+                <div class="ui-block">
+                    <div class="ui-block-title">
+                        <h6 class="title">我的个人资料</h6>
+                    </div>
+                    <div class="ui-block-content">
+                        <form id="editUser">
+                            <div class="row">
+                                <div class="col col-lg-6 col-md-6 col-sm-12 col-12">
+                                    <div class="form-group label-floating">
+                                        <label class="control-label">用户名</label>
+                                        <input class="form-control" name="userName" th:value="${user.userName}"
+                                               placeholder="" type="text" disabled>
+                                    </div>
+
+                                    <div class="form-group label-floating">
+                                        <label class="control-label">昵称</label>
+                                        <input class="form-control" name="nickName" th:value="${user.nickName}"
+                                               placeholder="" type="text"
+                                        >
+                                    </div>
+
+                                    <div class="form-group label-floating is-select">
+                                        <label class="control-label">性别</label>
+                                        <select class="selectpicker form-control" name="sex" >
+                                            <option value="0">女</option>
+                                            <option value="1">男</option>
+                                        </select>
+                                        <input type="hidden" id="hiddenSex" th:value="${user.sex}">
+                                    </div>
+                                    <div class="form-group label-floating">
+                                        <button class="btn btn-purple" onclick="return false;" @click="editUser">保存
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="col col-lg-6 col-md-6 col-sm-12 col-12">
+                                    <div class="form-group label-floating text-center">
+                                        <img alt="author" class="avatar" name="avatar" th:src="${user.avatar}"
+                                             v-show="true">
+                                    </div>
+                                    <div class="form-group label-floating text-center">
+                                        <button class="btn btn-blue center-block" @click="toggleShow"
+                                                onclick="return false;">上传头像
+                                        </button>
+                                        <my-upload url="auth/user/uploadAvatar" img-format="jpg" img-bgc="#fff"
+                                                   v-model="show"
+                                                   field="avatar"
+                                                   ki="0"
+                                                   @crop-success="cropSuccess"
+                                                   @crop-upload-success="cropUploadSuccess"
+                                                   @crop-upload-fail="cropUploadFail"
+                                                   :no-rotate="false"
+                                                   :headers="headers"
+                                                   :params="otherParams"></my-upload>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div th:include="component/settingNav :: settingNav" class="col col-xl-3 order-xl-1 col-lg-3 order-lg-1 col-md-12 order-md-2 col-sm-12  responsive-display-none"></div>
+        </div>
+    </div>
+</div>
+<div th:fragment="script" th:remove="tag">
+    <script src="/script/setting/profile.js"></script>
+</div>
+</body>
+</html>

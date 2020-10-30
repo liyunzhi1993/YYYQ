@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="yyyq.auth.mapper.UserGameMapper" >
+  <resultMap id="BaseResultMap" type="yyyq.auth.entity.UserGame" >
+    <id column="user_game_id" property="userGameId" jdbcType="BIGINT" />
+    <result column="user_id" property="userId" jdbcType="BIGINT" />
+    <result column="game_id" property="gameId" jdbcType="BIGINT" />
+    <result column="disabled" property="disabled" jdbcType="BIT" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    user_game_id, user_id, game_id, disabled
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from user_game
+    where user_game_id = #{userGameId,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from user_game
+    where user_game_id = #{userGameId,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="yyyq.auth.entity.UserGame" >
+    insert into user_game (user_game_id, user_id, game_id, 
+      disabled)
+    values (#{userGameId,jdbcType=BIGINT}, #{userId,jdbcType=BIGINT}, #{gameId,jdbcType=BIGINT}, 
+      #{disabled,jdbcType=BIT})
+  </insert>
+  <insert id="insertSelective" parameterType="yyyq.auth.entity.UserGame" >
+    insert into user_game
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="userGameId != null" >
+        user_game_id,
+      </if>
+      <if test="userId != null" >
+        user_id,
+      </if>
+      <if test="gameId != null" >
+        game_id,
+      </if>
+      <if test="disabled != null" >
+        disabled,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="userGameId != null" >
+        #{userGameId,jdbcType=BIGINT},
+      </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=BIGINT},
+      </if>
+      <if test="gameId != null" >
+        #{gameId,jdbcType=BIGINT},
+      </if>
+      <if test="disabled != null" >
+        #{disabled,jdbcType=BIT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="yyyq.auth.entity.UserGame" >
+    update user_game
+    <set >
+      <if test="userId != null" >
+        user_id = #{userId,jdbcType=BIGINT},
+      </if>
+      <if test="gameId != null" >
+        game_id = #{gameId,jdbcType=BIGINT},
+      </if>
+      <if test="disabled != null" >
+        disabled = #{disabled,jdbcType=BIT},
+      </if>
+    </set>
+    where user_game_id = #{userGameId,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="yyyq.auth.entity.UserGame" >
+    update user_game
+    set user_id = #{userId,jdbcType=BIGINT},
+      game_id = #{gameId,jdbcType=BIGINT},
+      disabled = #{disabled,jdbcType=BIT}
+    where user_game_id = #{userGameId,jdbcType=BIGINT}
+  </update>
+</mapper>

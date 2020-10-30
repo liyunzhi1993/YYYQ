@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="yyyq.ffxiv.mapper.UserFFXIVMapper">
+  <resultMap id="BaseResultMap" type="yyyq.ffxiv.entity.UserFFXIV">
+    <id column="user_ffxiv_id" jdbcType="BIGINT" property="userFfxivId" />
+    <result column="user_game_id" jdbcType="BIGINT" property="userGameId" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="clazz" jdbcType="INTEGER" property="clazz" />
+    <result column="race" jdbcType="INTEGER" property="race" />
+    <result column="server" jdbcType="INTEGER" property="server" />
+    <result column="area" jdbcType="INTEGER" property="area" />
+    <result column="sex" jdbcType="BIT" property="sex" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="create_by" jdbcType="VARCHAR" property="createBy" />
+    <result column="modify_time" jdbcType="TIMESTAMP" property="modifyTime" />
+    <result column="modify_by" jdbcType="VARCHAR" property="modifyBy" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="yyyq.ffxiv.entity.UserFFXIV">
+    <result column="introduction" jdbcType="LONGVARCHAR" property="introduction" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    user_ffxiv_id, user_game_id, name, clazz, race, server, area, sex, create_time, create_by, 
+    modify_time, modify_by
+  </sql>
+  <sql id="Blob_Column_List">
+    introduction
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from user_ffxiv
+    where user_ffxiv_id = #{userFfxivId,jdbcType=BIGINT}
+  </select>
+  <select id="selectByUserGameId" parameterType="java.lang.Long" resultMap="ResultMapWithBLOBs">
+    select
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from user_ffxiv
+    where user_game_id = #{userGameId,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from user_ffxiv
+    where user_ffxiv_id = #{userFfxivId,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="yyyq.ffxiv.entity.UserFFXIV">
+    insert into user_ffxiv (user_ffxiv_id, user_game_id, name, 
+      clazz, race, server, 
+      area, sex, create_time, 
+      create_by, modify_time, modify_by, 
+      introduction)
+    values (#{userFfxivId,jdbcType=BIGINT}, #{userGameId,jdbcType=BIGINT}, #{name,jdbcType=VARCHAR}, 
+      #{clazz,jdbcType=INTEGER}, #{race,jdbcType=INTEGER}, #{server,jdbcType=INTEGER}, 
+      #{area,jdbcType=INTEGER}, #{sex,jdbcType=BIT}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{createBy,jdbcType=VARCHAR}, #{modifyTime,jdbcType=TIMESTAMP}, #{modifyBy,jdbcType=VARCHAR}, 
+      #{introduction,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="yyyq.ffxiv.entity.UserFFXIV">
+    insert into user_ffxiv
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="userFfxivId != null">
+        user_ffxiv_id,
+      </if>
+      <if test="userGameId != null">
+        user_game_id,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="clazz != null">
+        clazz,
+      </if>
+      <if test="race != null">
+        race,
+      </if>
+      <if test="server != null">
+        server,
+      </if>
+      <if test="area != null">
+        area,
+      </if>
+      <if test="sex != null">
+        sex,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="createBy != null">
+        create_by,
+      </if>
+      <if test="modifyTime != null">
+        modify_time,
+      </if>
+      <if test="modifyBy != null">
+        modify_by,
+      </if>
+      <if test="introduction != null">
+        introduction,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="userFfxivId != null">
+        #{userFfxivId,jdbcType=BIGINT},
+      </if>
+      <if test="userGameId != null">
+        #{userGameId,jdbcType=BIGINT},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="clazz != null">
+        #{clazz,jdbcType=INTEGER},
+      </if>
+      <if test="race != null">
+        #{race,jdbcType=INTEGER},
+      </if>
+      <if test="server != null">
+        #{server,jdbcType=INTEGER},
+      </if>
+      <if test="area != null">
+        #{area,jdbcType=INTEGER},
+      </if>
+      <if test="sex != null">
+        #{sex,jdbcType=BIT},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createBy != null">
+        #{createBy,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null">
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyBy != null">
+        #{modifyBy,jdbcType=VARCHAR},
+      </if>
+      <if test="introduction != null">
+        #{introduction,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="yyyq.ffxiv.entity.UserFFXIV">
+    update user_ffxiv
+    <set>
+      <if test="userGameId != null">
+        user_game_id = #{userGameId,jdbcType=BIGINT},
+      </if>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="clazz != null">
+        clazz = #{clazz,jdbcType=INTEGER},
+      </if>
+      <if test="race != null">
+        race = #{race,jdbcType=INTEGER},
+      </if>
+      <if test="server != null">
+        server = #{server,jdbcType=INTEGER},
+      </if>
+      <if test="area != null">
+        area = #{area,jdbcType=INTEGER},
+      </if>
+      <if test="sex != null">
+        sex = #{sex,jdbcType=BIT},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createBy != null">
+        create_by = #{createBy,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null">
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyBy != null">
+        modify_by = #{modifyBy,jdbcType=VARCHAR},
+      </if>
+      <if test="introduction != null">
+        introduction = #{introduction},
+      </if>
+    </set>
+    where user_ffxiv_id = #{userFfxivId,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="yyyq.ffxiv.entity.UserFFXIV">
+    update user_ffxiv
+    set user_game_id = #{userGameId,jdbcType=BIGINT},
+      name = #{name,jdbcType=VARCHAR},
+      clazz = #{clazz,jdbcType=INTEGER},
+      race = #{race,jdbcType=INTEGER},
+      server = #{server,jdbcType=INTEGER},
+      area = #{area,jdbcType=INTEGER},
+      sex = #{sex,jdbcType=BIT},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_by = #{createBy,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_by = #{modifyBy,jdbcType=VARCHAR},
+      introduction = #{introduction,jdbcType=LONGVARCHAR}
+    where user_ffxiv_id = #{userFfxivId,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="yyyq.ffxiv.entity.UserFFXIV">
+    update user_ffxiv
+    set user_game_id = #{userGameId,jdbcType=BIGINT},
+      name = #{name,jdbcType=VARCHAR},
+      clazz = #{clazz,jdbcType=INTEGER},
+      race = #{race,jdbcType=INTEGER},
+      server = #{server,jdbcType=INTEGER},
+      area = #{area,jdbcType=INTEGER},
+      sex = #{sex,jdbcType=BIT},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_by = #{createBy,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_by = #{modifyBy,jdbcType=VARCHAR}
+    where user_ffxiv_id = #{userFfxivId,jdbcType=BIGINT}
+  </update>
+</mapper>

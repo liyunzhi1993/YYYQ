@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<div th:fragment="header">
+    <!-- Header-BP -->
+    <header class="header" id="site-header">
+        <div class="container">
+            <div class="page-title">
+                <a href="/user/index"><h6 th:text="${site.title+'-'+site.subTitle}"></a>
+            </div>
+            <div class="header-content-wrapper">
+                <div class="control-block">
+                    <div class="author-page author vcard inline-items more">
+                        <div class="author-thumb">
+                            <img alt="author" name="avatar"  th:src="${user.avatar}" class="avatar" width="44px">
+                            <div class="more-dropdown more-with-triangle">
+                                <div class="mCustomScrollbar" data-mcs-theme="dark">
+                                    <div class="ui-block-title ui-block-title-small">
+                                        <h6 class="title">我的账号</h6>
+                                    </div>
+                                    <ul class="account-settings">
+                                        <li>
+                                            <a href="/user/index">
+                                                <span class="icon icon-home">首页</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/setting/profile">
+                                                <span class="icon icon-cog">设置</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/user/logout">
+                                                <span class="icon icon-sign-out">登出</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!--<div class="control-block">-->
+                    <!--<div class="author-page author vcard inline-items more">-->
+                        <!--<div class="author-thumb">-->
+                            <!--<img alt="author" src="http://image.yiyouyiqu.com/wow-logo.png" class="avatar" width="40px">-->
+                            <!--<div class="more-dropdown more-with-triangle">-->
+                                <!--<div class="mCustomScrollbar" data-mcs-theme="dark">-->
+                                    <!--<div class="ui-block-title ui-block-title-small">-->
+                                        <!--<h6 class="title">魔兽世界</h6>-->
+                                    <!--</div>-->
+                                    <!--<ul class="account-settings">-->
+                                        <!--<li>-->
+                                            <!--<a href="/wow/job">-->
+                                                <!--<span class="icon icon-heart">求职</span>-->
+                                            <!--</a>-->
+                                        <!--</li>-->
+                                    <!--</ul>-->
+                                    <!--</ul>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+            </div>
+        </div>
+    </header>
+    <!-- ... end Header-BP -->
+    <!-- Responsive Header-BP -->
+    <header class="header header-responsive" id="site-header-responsive">
+        <div class="header-content-wrapper" style="float: right">
+            <div class="author-page author vcard inline-items more">
+                <div class="author-thumb">
+                    <div style="line-height: 52px">
+                        <img alt="author" name="avatar" th:src="${user.avatar}" class="avatar" width="44px" style="line-height: 52px">
+                    </div>
+                    <div class="more-dropdown more-with-triangle">
+                        <div class="mCustomScrollbar" data-mcs-theme="dark">
+                            <div class="ui-block-title ui-block-title-small">
+                                <h6 class="title">我的账号</h6>
+                            </div>
+                            <ul class="account-settings">
+                                <li>
+                                    <a href="/user/index">
+                                        <span class="icon icon-home">首页</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/setting/profile">
+                                        <span class="icon icon-cog">设置</span>
+                                    </a>
+                                </li>
+                                </li>
+                                <li>
+                                    <a href="/user/logout">
+                                        <span class="icon icon-sign-out">登出</span>
+                                    </a>
+                                </li>
+                            </ul>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--<div class="header-content-wrapper" style="float: right">-->
+            <!--<div class="author-page author vcard inline-items more">-->
+                <!--<div class="author-thumb">-->
+                    <!--<div style="line-height: 52px">-->
+                    <!--<img alt="author" src="http://image.yiyouyiqu.com/wow-logo.png" class="avatar" width="40px">-->
+                    <!--</div>-->
+                    <!--<div class="more-dropdown more-with-triangle">-->
+                        <!--<div class="mCustomScrollbar" data-mcs-theme="dark">-->
+                            <!--<div class="ui-block-title ui-block-title-small">-->
+                                <!--<h6 class="title">魔兽世界</h6>-->
+                            <!--</div>-->
+                            <!--<ul class="account-settings">-->
+                                <!--<li>-->
+                                    <!--<a href="/wow/job">-->
+                                        <!--<span class="icon icon-heart">求职</span>-->
+                                    <!--</a>-->
+                                <!--</li>-->
+                            <!--</ul>-->
+                            <!--</ul>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+
+        <!--</div>-->
+    </header>
+    <!-- ... end Responsive Header-BP -->
+    <div class="header-spacer"></div>
+</div>
+</body>
+</html>

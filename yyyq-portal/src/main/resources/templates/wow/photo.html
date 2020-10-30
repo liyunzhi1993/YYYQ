@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="zh-CN"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="shared/userLayout">
+<head>
+</head>
+<body>
+<div th:fragment="content" th:remove="tag">
+    <div class="row">
+        <div class="col col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+            <div class="photo-album-wrapper">
+                <div class="photo-album-item-wrap col-4-width">
+                    <div class="photo-album-item create-album" data-mh="album-item" style="height: 132px;">
+                        <a href="#" data-toggle="modal" data-target="#create-photo-album" class="  full-block"></a>
+                        <div class="content">
+                            <a href="#" class="btn btn-control bg-primary" data-toggle="modal"
+                               data-target="#create-photo-album">
+                                <span class="icon icon-plus-circle"></span>
+                                <div class="ripple-container"></div>
+                            </a>
+                            <a href="#" class="title h5" data-toggle="modal"
+                               data-target="#show-upload-photo">添加游戏截图</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="photo-item col-4-width">
+                    <img src="/img/photo1.jpg" alt="photo">
+                    <div class="overlay overlay-dark"></div>
+                    <a href="#" class="more">
+                        <span class="icon icon-ellipsis-h"></span>
+                    </a>
+                    <a href="#" data-toggle="modal" data-target="#open-photo-popup-v1" class="  full-block"></a>
+                    <div class="content">
+                        <a href="#" class="h6 title">决战艾利桑德</a>
+                        <time class="published" datetime="2017-11-15">2017-11-15</time>
+                    </div>
+                </div>
+                <a href="#" class="btn btn-control btn-more">
+                    <span class="icon icon-ellipsis-h"></span>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="open-photo-popup-v1" tabindex="-1" role="dialog" aria-labelledby="open-photo-popup-v1"
+         aria-hidden="true">
+        <div class="modal-dialog window-popup open-photo-popup open-photo-popup-v1" role="document">
+            <div class="modal-content">
+                <a href="#" class="close icon-close" data-dismiss="modal" aria-label="Close">
+                    <span class="icon icon-close"></span>
+                </a>
+                <div class="modal-body">
+                    <div class="open-photo-thumb">
+                        <div class="swiper-container" data-slide="fade">
+                            <div class="swiper-wrapper">
+
+                                <div class="swiper-slide">
+                                    <div class="photo-item">
+                                        <img src="/img/photo1.jpg" alt="photo">
+                                        <div class="overlay"></div>
+                                        <a href="#" class="more">
+                                            <span class="icon icon-ellipsis-h"></span>
+                                        </a>
+                                        <a href="#" class="tag-friends" data-toggle="tooltip" data-placement="top"
+                                           data-original-title="TAG YOUR FRIENDS">
+                                            <span class="icon icon-heart-o"></span>
+                                        </a>
+                                        <div class="content">
+                                            <a href="#" class="h6 title">Photoshoot 2016</a>
+                                            <time class="published" datetime="2017-03-24T18:18">2 weeks ago</time>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="swiper-slide">
+                                    <div class="photo-item">
+                                        <img src="/img/photo1.jpg" alt="photo">
+                                        <div class="overlay"></div>
+                                        <a href="#" class="more">
+                                            <span class="icon icon-ellipsis-h"></span>
+                                        </a>
+                                        <a href="#" class="tag-friends" data-toggle="tooltip" data-placement="top"
+                                           data-original-title="TAG YOUR FRIENDS">
+                                            <span class="icon icon-heart-o"></span>
+                                        </a>
+
+                                        <div class="content">
+                                            <a href="#" class="h6 title">Photoshoot 2016</a>
+                                            <time class="published" datetime="2017-03-24T18:18">2 weeks ago</time>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="swiper-slide">
+                                    <div class="photo-item">
+                                        <img src="/img/photo1.jpg" alt="photo">
+                                        <div class="overlay"></div>
+                                        <div class="content">
+                                            <a href="#" class="h6 title">决战艾利桑德</a>
+                                            <time class="published" datetime="2017-03-24T18:18">2小时前</time>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <!--Prev Next Arrows-->
+                            <span class="icon icon-arrow-left btn-prev-without"></span>
+                            <span class="icon icon-arrow-right btn-prev-without"></span>
+                        </div>
+                    </div>
+                    <div class="open-photo-content">
+                        <article class="hentry post">
+                            <div class="post__author author vcard inline-items">
+                                <img src="/img/head.png" alt="author">
+                                <div class="author-date">
+                                    <a class="h6 post__author-name fn" href="02-ProfilePage.html">我心蚀如影</a>
+                                    <div class="post__date">
+                                        <time class="published" datetime="2017-03-24T18:18">
+                                            2小时前
+                                        </time>
+                                    </div>
+                                </div>
+                                <div class="more">
+                                    <span class="icon icon-ellipsis-h"></span>
+                                    <ul class="more-dropdown">
+                                        <li>
+                                            <a href="#">删除截图</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <p>打这个破boss，开荒到凌晨2点多，还没过！</p>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="show-upload-photo" tabindex="-1" role="dialog" aria-labelledby="show-upload-photo"
+         aria-hidden="true">
+        <div class="modal-dialog window-popup edit-my-poll-popup" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <form id="fileupload" action="https://jquery-file-upload.appspot.com/" method="POST"
+                          enctype="multipart/form-data" class="">
+                        <!-- Redirect browsers with JavaScript disabled to the origin page -->
+                        <noscript><input type="hidden" name="redirect"
+                                         value="https://blueimp.github.io/jQuery-File-Upload/"></noscript>
+                        <!-- The fileupload-buttonbar contains buttons to add/delete files and start/cancel the upload -->
+                        <div class="row fileupload-buttonbar">
+                            <div class="col-lg-7">
+                                <!-- The fileinput-button span is used to style the file input field as button -->
+                                <span class="btn btn-success fileinput-button">
+                    <i class="glyphicon glyphicon-plus"></i>
+                    <span>Add files...</span>
+                    <input type="file" name="files[]" multiple="">
+                </span>
+                                <button type="submit" class="btn btn-primary start">
+                                    <i class="glyphicon glyphicon-upload"></i>
+                                    <span>Start upload</span>
+                                </button>
+                                <button type="reset" class="btn btn-warning cancel">
+                                    <i class="glyphicon glyphicon-ban-circle"></i>
+                                    <span>Cancel upload</span>
+                                </button>
+                                <button type="button" class="btn btn-danger delete">
+                                    <i class="glyphicon glyphicon-trash"></i>
+                                    <span>Delete</span>
+                                </button>
+                                <input type="checkbox" class="toggle">
+                                <!-- The global file processing state -->
+                                <span class="fileupload-process"></span>
+                            </div>
+                            <!-- The global progress state -->
+                            <div class="col-lg-5 fileupload-progress fade">
+                                <!-- The global progress bar -->
+                                <div class="progress progress-striped active" role="progressbar" aria-valuemin="0"
+                                     aria-valuemax="100">
+                                    <div class="progress-bar progress-bar-success" style="width:0%;"></div>
+                                </div>
+                                <!-- The extended global progress state -->
+                                <div class="progress-extended">&nbsp;</div>
+                            </div>
+                        </div>
+                        <!-- The table listing the files available for upload/download -->
+                        <table role="presentation" class="table table-striped">
+                            <tbody class="files"></tbody>
+                        </table>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div th:fragment="script" th:remove="tag">
+    <script src="/js/jquery.fileupload.js"></script>
+    <!-- The File Upload processing plugin -->
+    <script src="/js/jquery.fileupload-process.js"></script>
+    <!-- The File Upload image preview & resize plugin -->
+    <script src="/js/jquery.fileupload-image.js"></script>
+    <!-- The File Upload validation plugin -->
+    <script src="/js/jquery.fileupload-validate.js"></script>
+    <!-- The File Upload user interface plugin -->
+    <script src="/js/jquery.fileupload-ui.js"></script>
+</div>
+</body>
+</html>

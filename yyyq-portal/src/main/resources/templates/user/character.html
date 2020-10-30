@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="zh-CN"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="shared/userLayout">
+<head>
+</head>
+<body>
+<div th:fragment="content" th:remove="tag">
+    <div class="row">
+        <div class="col col-xl-3 col-lg-6 col-md-6 col-sm-6 col-6">
+            <!-- Friend Item -->
+            <div class="friend-item friend-groups create-group" data-mh="friend-groups-item" style="height: 226px;">
+                <a href="#" class="  full-block" data-toggle="modal" data-target="#create-friend-group-1"></a>
+                <div class="content">
+                    <a href="#" class="  btn btn-control bg-purple" data-toggle="modal"
+                       data-target="#create-friend-group-1">
+                        <span class="icon icon-plus-circle"></span>
+                    </a>
+                    <div class="author-content">
+                        <a href="#" class="h5 author-name">添加我的魔兽世界角色</a>
+                        <div class="country">由于国服英雄榜无法访问，暂不支持自动更新</div>
+                    </div>
+                </div>
+            </div>
+            <!-- ... end Friend Item -->
+        </div>
+        <div class="col col-xl-3 col-lg-6 col-md-6 col-sm-6 col-6">
+            <div class="ui-block" data-mh="friend-groups-item">
+                <!-- Friend Item -->
+                <div class="friend-item friend-groups" style="height: 226px;">
+                    <div class="friend-item-content">
+                        <div class="more">
+                           <span class="icon icon-"></span>
+                            <ul class="more-dropdown">
+                                <li>
+                                    <a href="#">删除角色</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="friend-avatar">
+                            <div class="author-thumb">
+                                <img src="https://render-cn.wowchina.com/character/ysera/239/76461807-avatar.jpg"
+                                     alt="角色信息">
+                            </div>
+                            <div class="author-content">
+                                <a href="#" class="h5 author-name">我心蚀如影</a>
+                                <br/>
+                                <a href="#" class="h5 author-name">白银之手-联盟</a>
+                                <div class="country">110 敏锐 潜行者
+                                    <a href="#"><img
+                                            src="https://www.wowchina.com/static/components/Logo/Logo-wowIcon.png"
+                                            alt="" width="15px"></a>
+                                    <a href="#"><img src="https://www.warcraftlogs.com/img/common/warcraft-logo.png"
+                                                     alt="" width="15px"></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- ... end Friend Item -->
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="create-friend-group-1" tabindex="-1" role="dialog"
+         aria-labelledby="create-friend-group-1" aria-hidden="true">
+        <div class="modal-dialog window-popup create-friend-group create-friend-group-1" role="document">
+            <div class="modal-content">
+                <a href="#" class="close icon-close" data-dismiss="modal" aria-label="Close">
+                   <span class="icon icon-close"></span>
+                </a>
+                <div class="modal-header">
+                    <h6 class="title">添加角色</h6>
+                </div>
+                <div class="modal-body">
+                    <form class="form-group label-floating is-select">
+                        <div class="form-group label-floating is-empty">
+                            <label class="control-label">角色名</label>
+                            <input class="form-control" placeholder="请输入角色名称" value="" type="text">
+                        </div>
+                        <div class="form-group label-floating is-empty">
+                            <label class="control-label">服务器</label>
+                            <input class="form-control" placeholder="请输入服务器" value="" type="text">
+                        </div>
+                    </form>
+                    <a href="#" class="btn btn-purple btn-lg full-width">添加</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      lang="zh-CN"
+      xmlns="http://www.w3.org/1999/xhtml"
+      layout:decorator="shared/notLayout">
+<head>
+</head>
+<body>
+<div th:fragment="content" th:remove="tag">
+    <!-- ... end Stunning header -->
+    <div class="row">
+        <div class="col col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+            <div class="ui-block responsive-flex1200">
+                <div class="ui-block-title">
+                    <!--<div class="w-select">-->
+                        <!--<div class="title">地区:</div>-->
+                        <!--<fieldset class="form-group">-->
+                            <!--<select class="selectpicker form-control" disabled>-->
+                                <!--<option value="NU">国服</option>-->
+                                <!--<option value="NU">国际服</option>-->
+                            <!--</select>-->
+                        <!--</fieldset>-->
+                    <!--</div>-->
+                    <div class="w-select">
+                        <div class="title">服务器:</div>
+                        <fieldset class="form-group">
+                            <select class="selectpicker form-control">
+                                <option value="NU">延夏</option>
+                                <option value="NU">紫水</option>
+                            </select>
+                        </fieldset>
+                    </div>
+                    <div class="w-select">
+                        <div class="title">职业:</div>
+                        <fieldset class="form-group">
+                            <select class="selectpicker form-control">
+                                <option value="NU">不限</option>
+                                <option value="NU">忍者</option>
+                                <option value="NU">黑魔法师</option>
+                                <option value="NU">战士</option>
+                            </select>
+                        </fieldset>
+                    </div>
+                    <div class="w-select">
+                        <div class="title">类型:</div>
+                        <fieldset class="form-group">
+                            <select class="selectpicker form-control">
+                                <option value="NU">零式</option>
+                                <option value="NU">绝巴哈</option>
+                            </select>
+                        </fieldset>
+                    </div>
+                    <a class="btn btn-purple btn-md-2" data-target="#add-my-job" data-toggle="modal" href="#">我要求职<div class="ripple-container"></div></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <section class="blog-post-wrap medium-padding80">
+        <div class="row">
+            <div class="col col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
+                <div class="ui-block" data-target="#show-job-info" data-toggle="modal">
+                    <!-- Friend Item -->
+                    <div class="friend-item">
+                        <div class="friend-item-content">
+                            <div class="friend-avatar">
+                                <div class="author-thumb">
+                                    <img th:src="${user.avatar}" alt="author" width="90px">
+                                </div>
+                                <div class="author-content">
+                                    <a href="#" class="h5 author-name">我心蚀如影</a>
+                                    <div class="country">拉拉菲尔-忍者<img src="https://huiji-thumb.huijistatic.com/ff14/uploads/thumb/2/21/Ninja.png/30px-Ninja.png"></div>
+                                </div>
+                            </div>
+                            <div class="swiper-container">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide">
+                                        <div class="friend-count" data-swiper-parallax="-500">
+                                            <a href="#" class="friend-count-item">
+                                                <div class="h6" style="color: red">O8S</div>
+                                                <div class="title">进度</div>
+                                            </a>
+                                            <a href="#" class="friend-count-item">
+                                                <div class="h6" style="color: red">零式</div>
+                                                <div class="title">类型</div>
+                                            </a>
+                                            <a href="#" class="friend-count-item">
+                                                <div class="h6"  style="color: red">3天</div>
+                                                <div class="title">接受时间</div>
+                                            </a>
+                                        </div>
+                                        <div class="post__date">
+                                            <time class="published" datetime="2017-03-24T18:18">
+                                                2018-06-20 11:33:44
+                                            </time>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- ... end Friend Item -->
+                </div>
+            </div>
+            <a class="btn btn-control btn-more" href="#">
+                <span class="icon icon-ellipsis-h"></span>
+                <div class="ripple-container"></div>
+            </a>
+        </div>
+    </section>
+    <div class="modal fade" id="show-job-info" tabindex="-1" role="dialog" aria-labelledby="show-job-info" aria-hidden="true">
+        <div class="modal-dialog window-popup edit-my-poll-popup" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="edit-my-poll-head bg-grey-lighter">
+                        <div class="head-content">
+                            <h3 class="title">拉拉菲尔-忍者<img src="https://huiji-thumb.huijistatic.com/ff14/uploads/thumb/2/21/Ninja.png/30px-Ninja.png"></h3>
+                            <div class="place inline-items">
+                                <span>装等：370</span>
+                                <span>类型：零式</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="edit-my-poll-content">
+                        <h4>求职描述</h4>
+                        <p>
+                        </p>
+                        <p>希望能找一个固定队从0开始开荒的，虽然我玩了没多久，可是我真的很强力噢！！！
+                        </p>
+                        <h4>联系方式</h4>
+                        <p>微信：xxxx，QQ：xxxxx</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="add-my-job" tabindex="-2" role="dialog" aria-labelledby="add-my-job" aria-hidden="true">
+        <div class="modal-dialog window-popup create-event" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h6 class="title">填写求职信息</h6>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group label-floating is-select">
+                        <label class="control-label">角色</label>
+                        <select class="selectpicker form-control">
+                            <option value="MA">圣骑士-白银之手-联盟</option>
+                            <option value="FE">潜行者-安苏-部落</option>
+                        </select>
+                    </div>
+                    <div class="form-group label-floating">
+                        <label class="control-label">装等</label>
+                        <input class="form-control" placeholder="请输入装等" value="" type="text">
+                    </div>
+                    <div class="form-group label-floating is-select">
+                        <label class="control-label">定位</label>
+                        <select class="selectpicker form-control">
+                            <option value="MA">PFF（休闲）</option>
+                            <option value="FE">PFU（职业）</option>
+                        </select>
+                    </div>
+                    <div class="form-group label-floating">
+                        <label class="control-label">描述</label>
+                        <textarea class="form-control" placeholder="对团队的期望，进度等">
+					</textarea>
+                    </div>
+                    <form class="form-group label-floating is-select">
+                        <span class="icon icon-calendar-o olymp-happy-face-icon"></span>
+                        <select class="selectpicker form-control style-2 show-tick" multiple data-live-search="true">
+                            <option title="周一">周一</option>
+                            <option>周二</option>
+                            <option>周三</option>
+                            <option>周四</option>
+                        </select>
+                    </form>
+                    <button class="btn btn-purple btn-lg full-width">完成</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

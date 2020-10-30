@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh-CN"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="shared/notLayout">
+<head>
+</head>
+<body>
+<div th:fragment="content" th:remove="tag">
+    <div class="container" id="ffxiv">
+        <div class="row">
+            <div class="col col-xl-9 order-xl-2 col-lg-9 order-lg-2 col-md-12 order-md-1 col-sm-12 col-12">
+                <div class="ui-block">
+                    <div class="ui-block-title">
+                        <h6 class="title">我的最终幻想14</h6>
+                    </div>
+                    <div class="ui-block-content">
+                        <form id="ffxivForm">
+                            <div class="row">
+                                <div class="col col-lg-6 col-md-6 col-sm-12 col-12">
+                                    <div class="form-group label-floating is-select">
+                                        <label class="control-label">角色名</label>
+                                        <input class="form-control" name="name" placeholder="请填写用户名" type="text" value="" v-model="userffxiv.name">
+                                    </div>
+                                    <div class="form-group label-floating is-select">
+                                        <label class="control-label">地区</label>
+                                        <select class="selectpicker form-control" name="area" disabled>
+                                            <option v-for="(value, key) in selectList.areaList" :value="key" >{{value}}</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group label-floating is-select">
+                                        <label class="control-label">种族</label>
+                                        <select class="selectpicker form-control" name="race" v-model="userffxiv.race">
+                                            <option value="-1" selected>请选择</option>
+                                            <option v-for="(value, key) in selectList.raceList" :value="key" >{{value}}</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col col-lg-6 col-md-6 col-sm-12 col-12">
+                                    <div class="form-group label-floating is-select">
+                                        <label class="control-label">主职</label>
+                                        <select class="selectpicker form-control" name="clazz" v-model="userffxiv.clazz">
+                                            <option value="-1" selected>请选择</option>
+                                            <option v-for="(value, key) in selectList.classList" :value="key">{{value}}</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group label-floating is-select">
+                                        <label class="control-label">服务器</label>
+                                        <select class="selectpicker form-control" name="server" v-model="userffxiv.server">
+                                            <option value="-1" selected>请选择</option>
+                                            <option v-for="(value, key) in selectList.chinaSDServerList" :value="key">{{value}}</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group label-floating is-select">
+                                        <label class="control-label">性别</label>
+                                        <select class="selectpicker form-control" name="sex"  v-model="userffxiv.sex">
+                                            <option value="" selected>请选择</option>
+                                            <option value="true">男</option>
+                                            <option value="false">女</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col col-lg-12 col-md-12 col-sm-12 col-12">
+                                    <div class="form-group label-floating is-select">
+                                        <label class="control-label">艾欧泽亚中的我</label>
+                                        <textarea class="form-control" name="introduction" placeholder="比如：我爱ff14，倾听感受思考，打牌钓鱼赛鸟！喜欢交朋友！喜欢开荒打本！=w=，擅长忍者，偶尔也可以玩玩战士。" v-model="userffxiv.introduction"></textarea>
+                                    </div>
+                                </div>
+                                <div class="col col-lg-12 col-md-12 col-sm-12 col-12">
+                                    <button class="btn btn-purple" @click="save" onclick="return false">保存</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div th:include="component/settingNav :: settingNav"
+                 class="col col-xl-3 order-xl-1 col-lg-3 order-lg-1 col-md-12 order-md-2 col-sm-12  responsive-display-none"></div>
+        </div>
+    </div>
+</div>
+<div th:fragment="script" th:remove="tag">
+    <script src="/script/setting/ffxiv.js"></script>
+</div>
+</body>
+</html>

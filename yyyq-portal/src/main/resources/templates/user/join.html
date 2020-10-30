@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title th:text="${site.title+'-'+site.subTitle}"></title>
+    <!-- Required meta tags always come first -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <link rel="icon" type="image/x-icon" href="/img/favicon.ico">
+    <!-- Bootstrap CSS -->
+    <link href="/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+    <!-- Main Styles CSS -->
+    <!--<link rel="stylesheet" type="text/css" href="/css/main.min.css">-->
+    <link rel="stylesheet" type="text/css" href="/css/main.css">
+    <link rel="stylesheet" type="text/css" href="/css/fonts.min.css">
+    <script src="/js/jquery-3.2.1.js"></script>
+    <script src="/js/headroom.js"></script>
+    <script src="/js/perfect-scrollbar.js"></script>
+    <script src="https://cdn.bootcss.com/vue/2.5.16/vue.min.js"></script>
+    <script src="https://cdn.bootcss.com/layer/3.0.3/layer.min.js"></script>
+    <script src="https://cdn.bootcss.com/jquery.serializeJSON/2.9.0/jquery.serializejson.min.js"></script>
+    <script src="https://cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+    <script src="/script/common.js"></script>
+</head>
+<body class="landing-page">
+<div class="content-bg-wrap"></div>
+<!-- Header Standard Landing  -->
+<div class="header--standard header--standard-landing" id="header--standard">
+    <div class="container">
+        <div class="header--standard-wrap">
+            <a href="/user/index" class="logo">
+                <!--<div class="img-wrap">-->
+                    <!--<img th:src="${site.logoUrl}" width="48px" alt="YYYQ">-->
+                <!--</div>-->
+                <div class="title-block">
+                    <h6 class="logo-title" th:text="${site.title}"></h6>
+                    <div class="sub-title" th:text="${site.subTitle}"></div>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
+<!-- ... end Header Standard Landing  -->
+<div class="header-spacer--standard"></div>
+<div class="container" id="join">
+    <div class="row display-flex">
+        <div class="col col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
+            <div class="landing-content text-center">
+                <h3>分享游戏乐趣，结交游戏好友!</h3>
+                <h6>请在微信公众号提供反馈!
+                </h6>
+                <a href="#" name="nav-join" class="btn btn-md btn-border c-white account" data="login"
+                   style="display:none;">立即登录!</a>
+                <a href="#" name="nav-join" class="btn btn-md btn-border c-white account" data="register">立即注册!</a>
+            </div>
+        </div>
+        <div class="col col-xl-5 col-lg-6 col-md-12 col-sm-12 col-12">
+            <!-- Login-Registration Form  -->
+            <div class="registration-login-form">
+                <!-- Tab panes -->
+                <div class="tab-content">
+                    <div class="tab-pane active" id="login" role="tabpanel" data-mh="log-tab">
+                        <div class="title h6">登录你的账号
+                        </div>
+                        <form class="content" id="loginForm">
+                            <div class="row">
+                                <div class="col col-12 col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                                    <div class="form-group label-floating is-empty">
+                                        <label class="control-label">手机号</label>
+                                        <input class="form-control" name="phone" placeholder="" type="text">
+                                    </div>
+                                    <div class="form-group label-floating is-empty">
+                                        <label class="control-label">密码</label>
+                                        <input class="form-control" name="password" placeholder="" type="password">
+                                    </div>
+                                    <div class="remember">
+                                        <div class="checkbox">
+                                            <label>
+                                                <input name="rememberMe" type="checkbox" checked>
+                                                记住我
+                                            </label>
+                                        </div>
+                                        <!--<a href="#" class="forgot">忘记密码</a>-->
+                                    </div>
+                                    <button class="btn btn-purple btn-lg full-width" @click="login" onclick="return false;">登录</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="tab-pane" id="register" role="tabpanel" data-mh="log-tab">
+                        <div class="title h6">注册你的账号
+                        </div>
+                        <form class="content" id="registerForm">
+                            <div class="row">
+                                <div class="col col-12 col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                                    <div class="form-group label-floating is-empty">
+                                        <label class="control-label">手机号</label>
+                                        <input class="form-control" name="phone" placeholder="" type="text">
+                                    </div>
+                                    <div class="form-group label-floating is-empty">
+                                        <label class="control-label">密码</label>
+                                        <input class="form-control" id="regPassword" name="password" placeholder=""
+                                               type="password">
+                                    </div>
+                                    <div class="form-group label-floating is-empty">
+                                        <label class="control-label">确认密码</label>
+                                        <input class="form-control" id="regConfirmPassword" name="confirmPassword"
+                                               placeholder="" type="password">
+                                    </div>
+                                    <div class="form-group label-floating">
+                                        <label class="control-label">短信验证码</label>
+                                        <input class="form-control bg-white" placeholder="" value="" type="text"
+                                               name="code">
+                                        <span class="material-input"></span>
+                                    </div>
+                                    <button class="btn btn-default btn-purple" @click="sendCode" onclick="return false;">发送短信验证码</button>
+                                    <button class="btn btn-purple btn-lg full-width" @click="register" onclick="return false;">完成注册!</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!-- ... end Login-Registration Form  -->        </div>
+    </div>
+</div>
+<div class="container" style="color:white">
+    <div class="row">
+        <div class="col col-lg-12 col-md-12 col-sm-12 col-12">
+            <!-- SUB Footer -->
+            <div class="sub-footer-copyright">
+					<span th:text="${'Copyright YYYQ-'+site.title+'-'+site.subTitle+' All Rights Reserved 2018'}">
+					</span>
+            </div>
+            <!-- ... end SUB Footer -->
+        </div>
+    </div>
+</div>
+<!-- JS Scripts -->
+<script src="/script/user/join.js"></script>
+<script src="/js/material.min.js"></script>
+<script src="/js/bootstrap-select.js"></script>
+<script src="/js/smooth-scroll.js"></script>
+<script src="/js/swiper.jquery.js"></script>
+<script src="/js/base-init.js"></script>
+<script defer src="/fonts/fontawesome-all.js"></script>
+<script src="https://cdn.bootcss.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
